@@ -22,20 +22,7 @@
     "url": "https://github.com/zedd45/2016Q1-adv-js/issues"
   },
   "homepage": "https://github.com/zedd45/2016Q1-adv-js#readme",
-  "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-jasmine": "^2.2.1",
-    "gulp-jshint": "^2.0.0",
-    "jasmine": "^2.4.1",
-    "jshint": "^2.8.0",
-    "jshint-stylish": "^2.1.0"
-  },
   "dependencies": {
-    "gulp": "^3.9.0",
-    "gulp-jshint": "^2.0.0",
-    "gulp-jasmine": "^2.2.1",
-    "jshint-stylish": "^2.1.0",
-    "jshint": "^2.8.0",
     "jasmine": "^2.4.1"
   }
 }
