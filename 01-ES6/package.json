@@ -4,7 +4,8 @@
   "description": "advanced javascript course taught at The Creative Circus",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/jasmine"
+    "test": "./node_modules/.bin/jasmine",
+    "lint": "./node_modules/.bin/eslint .eslintrc.js index.js"
   },
   "repository": {
     "type": "git",
