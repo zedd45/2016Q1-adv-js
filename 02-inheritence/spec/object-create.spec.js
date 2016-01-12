@@ -2,7 +2,7 @@
 
 // load our 'main'
 
-const Main = require('../index.js');
+const Main = require('../object-create.js');
 const Animal = Main.Animal;
 const Dog = Main.Dog;
 
@@ -16,9 +16,9 @@ describe('Animal', function () {
 
     beforeEach( function () {
 
-        this.Hippo = new Animal({
-            name: 'Hungry, Hungry'
-        });
+        // http://jasmine.github.io/2.4/introduction.html#section-The_<code>this</code>_keyword
+        this.Hippo = Object.create(Animal);
+        this.Hippo.name = 'Hungry, Hungry';
     });
 
     it('can consume calories', function () {
@@ -37,15 +37,14 @@ describe('Dog', function () {
 
     beforeEach( function () {
 
-        this.Lassie = new Dog({
-            name: 'Lassie'
-        });
-
+        this.Lassie = Object.create(Dog);
+        this.Lassie.name = 'Lassie';
         spyOn(this.Lassie, 'bark');
     });
 
     it('can bark', function () {
 
+        // be wary of changing your code so that your tests pass! This can be an advantage of TDD.
         this.Lassie.bark();
         expect(this.Lassie.bark).toHaveBeenCalled();
         expect(this.Lassie.eat).toEqual(jasmine.any(Function));
