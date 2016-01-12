@@ -54,6 +54,7 @@ let Jupiter = null;
         calories: 300
     });
 
+    // why isn't this private?
     console.log(Jupiter.calories); // eslint-disable-line no-console
 
 
