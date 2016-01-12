@@ -27,7 +27,7 @@ describe('Animal', function () {
             calories: 500
         });
 
-        expect(this.Hippo.calories).toBeGreaterThan(1);
+        expect(this.Hippo.calories).toBeGreaterThan(0);
     });
 });
 

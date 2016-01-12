@@ -3,11 +3,10 @@
 // Hungarian notation! Just for kicks.
 // https://en.wikipedia.org/wiki/Hungarian_notation
 
-const ONE_INT = 1;
-
+const DEFAULT_CAL = 0;
 let Jupiter = null;
 
-(function (one) {
+(function (Jupe, startingCalories) {
 
     'use strict';
 
@@ -18,7 +17,7 @@ let Jupiter = null;
         // these will be set when a new Animal is created
 
         this.firstName = name;  // name is reserved for functions, which `this` is pointing to one such
-        this.calories = one;
+        this.calories = startingCalories;
 
         this.eat = function (food) {
 
@@ -35,7 +34,9 @@ let Jupiter = null;
 
         this.bark = function () {
 
-            console.log('woof'); // eslint-disable-line no-console
+            if (!module.parent){
+                console.log('woof'); // eslint-disable-line no-console
+            }
         };
     };
 
@@ -46,17 +47,18 @@ let Jupiter = null;
 
     // Create an `instance` of a dog, named after the coolest one in the universe (IMHO)
 
-    Jupiter = new Dog('Jupiter');
+    Jupe = new Dog('Jupiter');
 
-    Jupiter.bark();
-    Jupiter.eat({
+    Jupe.bark();
+    Jupe.eat({
         name: 'steak',
         calories: 300
     });
 
-    // why isn't this private?
-    console.log(Jupiter.calories); // eslint-disable-line no-console
-
+    if (!module.parent) {
+        // why isn't this private?
+        console.log(Jupe.calories); // eslint-disable-line no-console
+    }
 
     // define / declare exports (for testing etc)
 
@@ -64,4 +66,4 @@ let Jupiter = null;
     exports.Dog = Dog;
 
 
-})(ONE_INT);
+})(Jupiter, DEFAULT_CAL);
