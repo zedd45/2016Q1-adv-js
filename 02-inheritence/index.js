@@ -3,7 +3,7 @@
 // Hungarian notation! Just for kicks.
 // https://en.wikipedia.org/wiki/Hungarian_notation
 
-const DEFAULT_CAL = 0;
+const DEFAULT_CAL_INT = 0;
 let Jupiter = null;
 
 (function (Jupe, startingCalories) {
@@ -63,5 +63,15 @@ let Jupiter = null;
     exports.Animal = Animal;
     exports.Dog = Dog;
 
+    /*
+    // example of prototype manipulation
+    Dog.prototype.breed = "shepherd";
+    console.log(Jupe.breed);
+    Jupe.breed = "pincer";
+    console.log(Jupe.breed);
 
-})(Jupiter, DEFAULT_CAL);
+    let someoneElsesDog = new Dog('Mischief');
+    console.log(someoneElsesDog.breed);
+    */
+
+})(Jupiter, DEFAULT_CAL_INT);
