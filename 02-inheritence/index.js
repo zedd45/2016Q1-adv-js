@@ -34,8 +34,11 @@ let Jupiter = null;
 
         this.bark = function () {
 
-            if (!module.parent){
-                console.log('woof'); // eslint-disable-line no-console
+            if (typeof Audio === 'function') {
+                let noise = new Audio('http://www.freesfx.co.uk/rx2/mp3s/3/3580_1329340200.mp3');
+                if (noise && typeof noise.play === 'function') {
+                    noise.play();
+                }
             }
         };
     };
@@ -54,11 +57,6 @@ let Jupiter = null;
         name: 'steak',
         calories: 300
     });
-
-    if (!module.parent) {
-        // why isn't this private?
-        console.log(Jupe.calories); // eslint-disable-line no-console
-    }
 
     // define / declare exports (for testing etc)
 
