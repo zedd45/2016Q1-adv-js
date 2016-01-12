@@ -1,0 +1,28 @@
+{
+  "name": "creative-circus-advanced-js",
+  "version": "1.0.0",
+  "description": "advanced javascript course taught at The Creative Circus",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine",
+    "lint": "./node_modules/.bin/eslint .eslintrc.js index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zedd45/2016Q1-adv-js.git"
+  },
+  "keywords": [
+    "javascript",
+    "es2015",
+    "es6"
+  ],
+  "author": "Chris Keen <christopher.keen@gmail.com> (http://keenwebconcepts.com/)",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/zedd45/2016Q1-adv-js/issues"
+  },
+  "homepage": "https://github.com/zedd45/2016Q1-adv-js#readme",
+  "dependencies": {
+    "eslint": "1.x.x"
+  }
+}
