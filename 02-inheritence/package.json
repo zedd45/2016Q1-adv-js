@@ -22,7 +22,8 @@
     "url": "https://github.com/zedd45/2016Q1-adv-js/issues"
   },
   "homepage": "https://github.com/zedd45/2016Q1-adv-js#readme",
-  "dependencies": {
-    "eslint": "1.x.x"
+  "devDependencies": {
+    "eslint": "1.x.x",
+    "jasmine": "^2.4.1"
   }
 }
