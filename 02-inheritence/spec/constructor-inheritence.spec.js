@@ -2,7 +2,7 @@
 
 // load our 'main'
 
-const Main = require('../index.js');
+const Main = require('../constructor-inheritence.js');
 const Animal = Main.Animal;
 const Dog = Main.Dog;
 
@@ -17,8 +17,7 @@ describe('Animal', function () {
     beforeEach( function () {
 
         // http://jasmine.github.io/2.4/introduction.html#section-The_<code>this</code>_keyword
-        this.Hippo = Object.create(Animal);
-        this.Hippo.name = 'Hungry, Hungry';
+        this.Hippo = new Animal('Hungry, Hungry');
     });
 
     it('can consume calories', function () {
@@ -37,8 +36,7 @@ describe('Dog', function () {
 
     beforeEach( function () {
 
-        this.Lassie = Object.create(Dog);
-        this.Lassie.name = 'Lassie';
+        this.Lassie = new Dog('Lassie');
         spyOn(this.Lassie, 'bark');
     });
 
@@ -47,6 +45,5 @@ describe('Dog', function () {
         // be wary of changing your code so that your tests pass! This can be an advantage of TDD.
         this.Lassie.bark();
         expect(this.Lassie.bark).toHaveBeenCalled();
-        expect(this.Lassie.eat).toEqual(jasmine.any(Function));
     });
 });
