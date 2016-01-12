@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/zedd45/2016Q1-adv-js#readme",
   "dependencies": {
-    "jasmine": "^2.4.1"
+    "eslint": "1.x.x"
   }
 }
