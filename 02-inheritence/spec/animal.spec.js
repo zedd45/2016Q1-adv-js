@@ -1,22 +1,30 @@
+'use strict';
+
+// load our 'main'
+
+const Main = require('../index.js');
+const Animal = Main.Animal;
+
 
 // https://github.com/jasmine/jasmine/wiki/Background#enter-jasmine
 
-describe("Animal", function() {
+describe('Animal', function() {
 
-    it("can consume calories", function() {
+    // just try using Fat Arrow here...
 
-        expect(true).toBe(true);
+    beforeEach( function () {
+
+        this.Hippo = new Animal('Hungry, Hungry');
     });
 
-    it("can compare have multiple 'assertions' in one block", function() {
+    it('can consume calories', function() {
 
-        expect(2).toEqual(2);
-        expect(1+1).toEqual(2);
+        this.Hippo.eat({
+            name: 'chocolate cake',
+            calories: 500
+        });
+
+        expect(this.Hippo.calories).toBeGreaterThan(1);
     });
 
-    it("can negate a test", function () {
-
-        // note that toBe properly compares with ===.  Why? because == is an expensive conversion
-        expect(false).not.toBe(true);
-    });
 });

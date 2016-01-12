@@ -1,3 +1,4 @@
+'use strict';
 
 // Hungarian notation! Just for kicks.
 // https://en.wikipedia.org/wiki/Hungarian_notation
@@ -54,6 +55,12 @@ let Jupiter = null;
     });
 
     console.log(Jupiter.calories); // eslint-disable-line no-console
+
+
+    // define / declare exports (for testing etc)
+
+    exports.Animal = Animal;
+    exports.Dog = Dog;
 
 
 })(ONE_INT);
