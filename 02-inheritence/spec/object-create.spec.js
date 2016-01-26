@@ -21,15 +21,31 @@ describe('Animal', function () {
         this.Hippo.name = 'Hungry, Hungry';
     });
 
-    it('can consume calories', function () {
+    it('has a name property', function () {
+
+        expect(this.Hippo.name).toBeDefined();
+    });
+
+
+    it ('should have 0 calories', function () {
+
+        expect(this.Hippo.calories).toBe(0);
+    });
+
+    it('can eat a food, and gain calories', function () {
 
         this.Hippo.eat({
-            name: 'chocolate cake',
-            calories: 500
+            calories: 100
         });
-
         expect(this.Hippo.calories).toBeGreaterThan(0);
     });
+
+    it ('should have 0 calories, again', function () {
+
+        expect(this.Hippo.calories).toBe(0);
+    });
+
+
 });
 
 
@@ -37,16 +53,18 @@ describe('Dog', function () {
 
     beforeEach( function () {
 
-        this.Lassie = Object.create(Dog);
-        this.Lassie.name = 'Lassie';
-        spyOn(this.Lassie, 'bark');
+        this.Doggie = Object.create(Dog);
+        this.Doggie.name = 'Puppy';
+
+        spyOn(this.Doggie, 'bark');
     });
 
-    it('can bark', function () {
+    it('can bark', function (){
 
         // be wary of changing your code so that your tests pass! This can be an advantage of TDD.
-        this.Lassie.bark();
-        expect(this.Lassie.bark).toHaveBeenCalled();
-        expect(this.Lassie.eat).toEqual(jasmine.any(Function));
+        this.Doggie.bark();
+        expect(this.Doggie.bark).toHaveBeenCalled();
     });
+
+
 });

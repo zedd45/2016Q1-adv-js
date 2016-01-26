@@ -11,24 +11,34 @@ const Dog = Main.Dog;
 
 describe('Animal', function () {
 
-    // try replacing these functions with 'Fat Arrows'
-    // http://blog.continuation.io/how-to-abuse-the-fat-arrow/
+    beforeEach(function () {
 
-    beforeEach( function () {
-
-        // http://jasmine.github.io/2.4/introduction.html#section-The_<code>this</code>_keyword
-        this.Hippo = new Animal('Hungry, Hungry');
+        this.Hippo = new Animal('hungry, hungry');
     });
 
-    it('can consume calories', function () {
+    it ('has a name; a firstName property', function () {
+
+        expect(this.Hippo.firstName).toContain('hungry');
+    });
+
+    it ('should have 0 calories', function () {
+
+        expect(this.Hippo.calories).toBe(0);
+    });
+
+    it('can eat a food, and gain calories', function () {
 
         this.Hippo.eat({
-            name: 'chocolate cake',
-            calories: 500
+            calories: 100
         });
-
         expect(this.Hippo.calories).toBeGreaterThan(0);
     });
+
+    it ('should have 0 calories, again', function () {
+
+        expect(this.Hippo.calories).toBe(0);
+    });
+
 });
 
 

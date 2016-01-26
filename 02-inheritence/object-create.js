@@ -34,18 +34,6 @@ let Jupiter = null;
         }
     };
 
-    // In order for Dog to `inherit` from Animal, we need to set Dog's prototype to Animal
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#Inheritance_with_the_prototype_chain
-
-    // Create an `instance` of a Dog, named after the coolest one in the universe (IMHO)
-
-    Jupe = Object.create(Dog);
-
-    Jupe.bark();
-    Jupe.eat({
-        name: 'steak',
-        calories: 300
-    });
 
     // define / declare exports (for testing etc)
 
