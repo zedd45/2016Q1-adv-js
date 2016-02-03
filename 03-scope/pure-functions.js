@@ -6,20 +6,19 @@ const people = [{
     twitter: '@jeresig'
 }];
 
-
-const favoriteFruits = function (fruitChoices) {
+// my favorite fruit is: 
+const filterMyFavoriteFruit = function (fruitChoices, favoriteFruit) {
 
     // return only your favorite fruits
     // hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
     return fruitChoices.filter(function (fruit) {
-        return fruit !== 'pear';
+        return fruit === favoriteFruit;
     });
 };
 
 const addPeople = function (people, person) {
 
-    // slice creates a copy of the array
-    let newPeople = people.slice(0);
+    let newPeople = [].concat(people);
     newPeople.push(person);
     return newPeople;
 };
@@ -28,6 +27,6 @@ const addPeople = function (people, person) {
 module.exports = {
     fruits,
     people,
-    favoriteFruits,
+    filterMyFavoriteFruit,
     addPeople
 };
