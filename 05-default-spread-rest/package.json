@@ -7,7 +7,7 @@
     "compile": "./node_modules/.bin/babel *.js --out-dir dist",
     "jasmine-init": "./node_modules/.bin/jasmine init",
     "lint": "./node_modules/.bin/eslint -c .eslintrc.js index.js **/*.js",
-    "test": "./node_modules/.bin/jasmine && npm run lint"
+    "test": "npm run compile && ./node_modules/.bin/jasmine && npm run lint"
   },
   "repository": {
     "type": "git",
