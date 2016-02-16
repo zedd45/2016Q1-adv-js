@@ -2,8 +2,25 @@ module.exports = (function () {
 
     'use strict';
 
-    const greedyFunction = function () {};
+    const multiply = function (multiplier, ...multiplicand) {
 
-    return { greedyFunction };
+        return multiplicand.map( function (currentValue) {
+
+            return multiplier * currentValue;
+        });
+    };
+
+    const sum = function (...operands) {
+
+        return operands.reduce( function (previousValue, currentValue) {
+
+            return previousValue + currentValue;
+        });
+    };
+
+    return {
+        multiply,
+        sum
+    };
 
 })();
