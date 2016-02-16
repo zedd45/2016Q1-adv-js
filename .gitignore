@@ -8,3 +8,6 @@ node_modules
 
 # OS X.x Files
 .DS_Store
+
+# ES6 compiled files
+dist/

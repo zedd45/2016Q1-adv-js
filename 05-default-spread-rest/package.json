@@ -4,6 +4,7 @@
   "description": "advanced javascript course taught at The Creative Circus",
   "main": "index.js",
   "scripts": {
+    "compile": "./node_modules/.bin/babel *.js --out-dir dist",
     "jasmine-init": "./node_modules/.bin/jasmine init",
     "lint": "./node_modules/.bin/eslint -c .eslintrc.js index.js **/*.js",
     "test": "./node_modules/.bin/jasmine && npm run lint"
@@ -24,6 +25,8 @@
   },
   "homepage": "https://github.com/zedd45/2016Q1-adv-js#readme",
   "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
     "eslint": "1.x.x",
     "jasmine": "^2.4.1"
   }
