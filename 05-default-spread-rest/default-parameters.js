@@ -8,7 +8,7 @@ module.exports = (function () {
     const oldGreeting = function (name) {
 
         const defaultGreeting = 'brave new world';
-        let greetingSuffix = name === undefined ? defaultGreeting : name;
+        let greetingSuffix = getValueOrDefault(name, defaultGreeting);
 
         return 'Hello, ' + greetingSuffix + '!';
     };
