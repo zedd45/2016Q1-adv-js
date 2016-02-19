@@ -7,11 +7,13 @@ const complexSequence = defaults.complexSequence;
 
 describe('Default Parameters', function () {
 
+
     it('uses the default value if one if not supplied', function () {
 
         expect(greeting()).toEqual('Hello, brave new world!');
         expect(oldGreeting()).toEqual('Hello, es5!');
     });
+
 
     it('overrides the default value with the supplied one', function () {
 
@@ -21,6 +23,7 @@ describe('Default Parameters', function () {
         expect(greeting(greetingSuffix)).toMatch(matcher);
         expect(oldGreeting(greetingSuffix)).toMatch(matcher);
     });
+
 
     // https://leanpub.com/understandinges6/read#leanpub-auto-functions-with-default-parameter-values
     // make sure when passing a function you are passing what you intended: a function reference, or the result of a function
@@ -36,6 +39,7 @@ describe('Default Parameters', function () {
         expect(greeting(myGreeting)).toMatch(matcher);
         expect(oldGreeting(myGreeting)).toMatch(matcher);
     });
+
 
     it('allows parameters earlier in the function definition to be used in later parameters', function () {
 
