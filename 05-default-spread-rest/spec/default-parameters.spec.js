@@ -1,6 +1,7 @@
 'use strict';
 
 const defaults = require('../dist/default-parameters');
+const addTwoNumbers = defaults.addTwoNumbers;
 const greeting = defaults.greeting;
 const oldGreeting = defaults.oldGreeting;
 const complexSequence = defaults.complexSequence;
@@ -12,6 +13,7 @@ describe('Default Parameters', function () {
 
         expect(greeting()).toEqual('Hello, brave new world!');
         expect(oldGreeting()).toEqual('Hello, es5!');
+        expect(addTwoNumbers(1,1)).toEqual(2);
     });
 
 
@@ -22,6 +24,7 @@ describe('Default Parameters', function () {
 
         expect(greeting(greetingSuffix)).toMatch(matcher);
         expect(oldGreeting(greetingSuffix)).toMatch(matcher);
+        expect(addTwoNumbers()).toEqual(0);
     });
 
 

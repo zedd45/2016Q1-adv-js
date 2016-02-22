@@ -2,13 +2,30 @@ module.exports = (function () {
 
     'use strict';
 
+    // this function is private because we do NOT export it (via the revealing module pattern below)
+
+    const getValueOrDefault = function(currentValue, defaultValue) {
+
+        // http://www.codereadability.com/javascript-default-parameters-with-or-operator/#howtosetdefaultsvaluesinstead
+
+        if (currentValue === undefined) {
+            return defaultValue;
+        } else {
+            return currentValue;
+        }
+    };
+
 
     // ES5 defaults
 
     const oldGreeting = function (name) {
 
-        const defaultGreeting = 'brave new world';
+        const defaultGreeting = 'es5';
         let greetingSuffix = getValueOrDefault(name, defaultGreeting);
+
+        if (typeof greetingSuffix === 'function') {
+            greetingSuffix = greetingSuffix();
+        }
 
         return 'Hello, ' + greetingSuffix + '!';
     };
@@ -18,7 +35,8 @@ module.exports = (function () {
 
     const greeting = function (name='brave new world') {
 
-        return 'Hello, ' + name + '!';
+        const result = typeof name === 'function' ? name() : name;
+        return 'Hello, ' + result + '!';
     };
 
 
@@ -36,24 +54,16 @@ module.exports = (function () {
     };
 
 
-    // this function is private because we do not export it (via the revealing module pattern below)
+    const complexSequence = function (noun, pluralNoun = noun + 's', action = 'fire blasters') {
 
-    const getValueOrDefault = function(currentValue, defaultValue) {
-
-        // http://www.codereadability.com/javascript-default-parameters-with-or-operator/#howtosetdefaultsvaluesinstead
-
-        if (currentValue === undefined) {
-            return defaultValue;
-        } else {
-            return currentValue;
-        }
+        return [pluralNoun, action].join(' ');
     };
-
 
     return {
         greeting,
         oldGreeting,
-        addTwoNumbers
+        addTwoNumbers,
+        complexSequence
     };
 
 })();
