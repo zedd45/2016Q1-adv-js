@@ -12,6 +12,8 @@ module.exports = (function () {
 
     const sum = function (...operands) {
 
+        console.log(...operands instanceof Array);
+
         return operands.reduce( function (previousValue, currentValue) {
 
             return previousValue + currentValue;
