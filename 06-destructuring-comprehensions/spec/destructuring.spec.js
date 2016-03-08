@@ -1,11 +1,29 @@
-// require something!
+'use strict';
+
+const destructuring = require('../dist/destructuring');
 
 describe('Destructuring', function () {
 
+    beforeEach(function () {
+
+        this.fantasyAuthors = destructuring.fantasyAuthors;
+    });
 
     describe('arrays', function () {
 
-        it('simplifies array => variable assignment for multiple values');
+        it('simplifies array => variable assignment for multiple values', function () {
+
+            const es6Result = destructuring.disassembleArray();
+            const es5Result = destructuring.disassembleArrayES5();
+
+            expect(es6Result).toEqual(jasmine.objectContaining({
+                firstAuthor: this.fantasyAuthors[0]
+            }));
+
+            expect(es5Result).toEqual(jasmine.objectContaining({
+                firstAuthor: this.fantasyAuthors[0]
+            }));
+        });
 
         it('easily swaps values');
     });

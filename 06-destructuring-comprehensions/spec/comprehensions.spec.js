@@ -2,6 +2,4 @@
 
 describe('Array Comprehensions', function () {
 
-    it('')
-
 });
