@@ -7,6 +7,8 @@ describe('Destructuring', function () {
     beforeEach(function () {
 
         this.fantasyAuthors = destructuring.fantasyAuthors;
+        this.scifiAuthors = destructuring.scifiAuthors;
+        this.swapValues = destructuring.swapValues;
     });
 
     describe('arrays', function () {
@@ -31,17 +33,28 @@ describe('Destructuring', function () {
             const prime = 7;
 
 
-            expect(destructuring.swapValues(pi, prime)).toEqual([prime, pi]);
+            expect(this.swapValues(pi, prime)).toEqual([prime, pi]);
         });
     });
 
     describe('returning values', function () {
 
         // We've always been able to return Arrays; This creates "named" parameters if accessed via destructuring
-        it('allows multiple values to be returned in an expression');
+        it('allows multiple values to be returned in an expression', function () {
+
+            expect(this.swapValues(1,2).length).toEqual(2);
+        });
 
         // this is due to the nature of destructuring to "fail-soft"; similar to standard object lookup foo["bar"], producing undefined values when not found
-        it('allows us to omit / ignore some values in the return statement');
+        it('allows us to omit / ignore some values in the return statement', function () {
+
+            const fewerAuthors = destructuring.ignoreMiddleAuthor(this.scifiAuthors); // Isaac; just an example :)
+            const middleAuthor = this.scifiAuthors[1];
+
+            expect(this.swapValues(1,2,3,4,5).length).toEqual(2);
+            expect(fewerAuthors.length).toBe(2);
+            expect(fewerAuthors).not.toEqual(jasmine.arrayContaining([middleAuthor]));
+        });
     });
 
 

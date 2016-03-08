@@ -51,12 +51,19 @@ module.exports = (function () {
     };
 
 
+    const ignoreMiddleAuthor = (arrayOfAuthors) => {
+
+        const [first, ,second] = arrayOfAuthors;
+        return [first, second];
+    };
+
     return {
         fantasyAuthors,
         scifiAuthors,
         disassembleArray,
         disassembleArrayES5,
-        swapValues
+        swapValues,
+        ignoreMiddleAuthor
     };
 
 })();
