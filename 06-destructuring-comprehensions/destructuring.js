@@ -5,6 +5,12 @@ module.exports = (function () {
     const fantasyAuthors = ['Terry Goodkind', 'Brandon Sanderson', 'Robert Jordan'];
     const scifiAuthors = ['Robert A. Heinlein', 'Isaac Asimov', 'Michael Crichton'];
 
+    const famousNumbers = {
+        pi: Math.pi,
+        seven: 7,
+        golden: 1.6180339887
+    };
+
     const disassembleArrayES5 = function () {
 
         // without destructuring we need to create separate assignments for each variable
@@ -21,6 +27,7 @@ module.exports = (function () {
             thirdAuthor
         };
     };
+
 
     const disassembleArray = () => {
 
@@ -57,13 +64,23 @@ module.exports = (function () {
         return [first, second];
     };
 
+
+    const pickApartObject = () => {
+
+        const { pi, seven, golden } = famousNumbers;
+
+        return [seven, golden, pi];
+    };
+
     return {
         fantasyAuthors,
         scifiAuthors,
+        famousNumbers,
         disassembleArray,
         disassembleArrayES5,
         swapValues,
-        ignoreMiddleAuthor
+        ignoreMiddleAuthor,
+        pickApartObject
     };
 
 })();

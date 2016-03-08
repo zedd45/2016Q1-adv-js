@@ -8,6 +8,7 @@ describe('Destructuring', function () {
 
         this.fantasyAuthors = destructuring.fantasyAuthors;
         this.scifiAuthors = destructuring.scifiAuthors;
+        this.famousNumbers = destructuring.famousNumbers;
         this.swapValues = destructuring.swapValues;
     });
 
@@ -60,7 +61,10 @@ describe('Destructuring', function () {
 
     describe('Objects', function () {
 
-        it('allows us to map variables to properties');
+        it('allows us to map variables to properties', function () {
+
+            expect(destructuring.pickApartObject()).toEqual([this.famousNumbers.seven, this.famousNumbers.golden, this.famousNumbers.pi]);
+        });
 
         it('allows us to reassign variable names');
 
