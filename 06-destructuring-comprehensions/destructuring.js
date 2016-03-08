@@ -3,7 +3,7 @@ module.exports = (function () {
     'use strict';
 
     const fantasyAuthors = ['Terry Goodkind', 'Brandon Sanderson', 'Robert Jordan'];
-    // const scifiAuthors = ['Robert A. Heinlein', 'Isaac Asimov', 'Michael Crichton'];
+    const scifiAuthors = ['Robert A. Heinlein', 'Isaac Asimov', 'Michael Crichton'];
 
     const disassembleArrayES5 = function () {
 
@@ -41,10 +41,22 @@ module.exports = (function () {
     };
 
 
+    // note this only returns the first two values!
+    const swapValues = (...rest) => {
+
+        const [first, second] = rest;
+        // notice the above assignment didn't create an array, as it may have appeared
+        // we still have to wrap these values in an array to return them as a set
+        return [second, first];
+    };
+
+
     return {
         fantasyAuthors,
+        scifiAuthors,
         disassembleArray,
-        disassembleArrayES5
+        disassembleArrayES5,
+        swapValues
     };
 
 })();

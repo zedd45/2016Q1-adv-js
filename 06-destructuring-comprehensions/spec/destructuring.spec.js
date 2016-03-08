@@ -25,7 +25,14 @@ describe('Destructuring', function () {
             }));
         });
 
-        it('easily swaps values');
+        it('easily swaps values', function () {
+
+            const pi = Math.PI;
+            const prime = 7;
+
+
+            expect(destructuring.swapValues(pi, prime)).toEqual([prime, pi]);
+        });
     });
 
     describe('returning values', function () {
