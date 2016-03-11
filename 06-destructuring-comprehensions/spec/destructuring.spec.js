@@ -38,12 +38,13 @@ describe('Destructuring', function () {
         });
     });
 
-    describe('returning values', function () {
+    describe('returning & evaluating values', function () {
 
         // We've always been able to return Arrays; This creates "named" parameters if accessed via destructuring
         it('allows multiple values to be returned in an expression', function () {
 
             expect(this.swapValues(1,2).length).toEqual(2);
+            expect(this.swapValues().length).toEqual(2);  // why might this be?  See next test.
         });
 
         // this is due to the nature of destructuring to "fail-soft"; similar to standard object lookup foo["bar"], producing undefined values when not found
@@ -53,8 +54,13 @@ describe('Destructuring', function () {
             const middleAuthor = this.scifiAuthors[1];
 
             expect(this.swapValues(1,2,3,4,5).length).toEqual(2);
-            expect(fewerAuthors.length).toBe(2);
             expect(fewerAuthors).not.toEqual(jasmine.arrayContaining([middleAuthor]));
+        });
+
+        it('is "fail-soft," meaning if the value cannot be found on the right side of the expression, the variable on the left is equal to undefined', function () {
+
+            expect(this.swapValues()).toEqual([undefined, undefined]);
+            expect(this.swapValues(1)).toEqual([undefined, 1]);
         });
     });
 
@@ -66,11 +72,32 @@ describe('Destructuring', function () {
             expect(destructuring.pickApartObject()).toEqual([this.famousNumbers.seven, this.famousNumbers.golden, this.famousNumbers.pi]);
         });
 
-        it('allows us to reassign variable names');
+        it('allows us to reassign variable names', function () {
 
-        it('allows for parsing function defaults from an object argument');
+            expect(destructuring.reassignProps()).toEqual(jasmine.objectContaining({
+                pi: this.famousNumbers.seven
+            }));
+        });
 
-        it('allows for easy computed property names (dynamic property names in objects)');
+        it('allows for parsing function defaults from an object argument', function () {
+
+            const carConfig = {
+                make: 'Porche',
+                model: '911 GT3',
+                specs: { hp: 475, engineConfiguration: 'flat6' }
+            };
+
+            expect(destructuring.objectDefaults()).toEqual(jasmine.objectContaining({
+                model: 'GT-R',
+                specs: jasmine.any(Object)
+            }));
+
+            expect(destructuring.objectDefaults(carConfig)).toEqual(jasmine.objectContaining({
+                model: '911 GT3',
+                make: 'Porche',
+                specs: jasmine.objectContaining({ hp: 475 })
+            }));
+        });
 
     });
 });

@@ -72,6 +72,30 @@ module.exports = (function () {
         return [seven, golden, pi];
     };
 
+
+    const reassignProps = () => {
+
+        const {pi, seven} = famousNumbers;
+
+        return {seven: pi, pi: seven };
+    };
+
+
+    // notice we're using destructing AND defaults here.  Don't you just love how we can mix and match the best of ES6
+    // creating really eloquent JavaScript? And you wonder why it's my favorite language!
+    // also notice we can use objects as defaults, so we're further "nesting" our statements
+
+    const objectDefaults = function ({color = 'gun metalic', make = 'Nissan', model = 'GT-R', specs = { hp: 545, trim: 'nismo', turbo: 2, engineConfiguration: 'v6'}} = {}) {
+
+        return {
+            make,
+            model,
+            color,
+            specs
+        };
+    };
+
+
     return {
         fantasyAuthors,
         scifiAuthors,
@@ -80,7 +104,9 @@ module.exports = (function () {
         disassembleArrayES5,
         swapValues,
         ignoreMiddleAuthor,
-        pickApartObject
+        pickApartObject,
+        reassignProps,
+        objectDefaults
     };
 
 })();
