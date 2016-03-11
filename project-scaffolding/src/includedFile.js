@@ -3,11 +3,10 @@ module.exports = {
     // remember to be careful with "Fat Arrow"
     // blog.continuation.io/how-to-abuse-the-fat-arrow/
 
-    const helloWorld = () => {
+  const helloWorld = (greeting = 'Hello World')  => {
 
-      return 'Hello World';
-    };
+      return greeting;
+  };
 
-    return { helloWorld };
-
+  return { helloWorld };
 };
