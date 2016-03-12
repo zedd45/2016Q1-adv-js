@@ -68,8 +68,9 @@ module.exports = {
       {
         test: /\.js$/,
         loaders: [
-            'babel?presets[]=es2015',
+            'babel?presets[]=es2015&presets[]=stage-0',
         ],
+
 
         include: Path.join(__dirname, 'src')
       },

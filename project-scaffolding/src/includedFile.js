@@ -5,12 +5,12 @@
 
     var helloWorld = function (greeting = 'Hello World') {
 
-      return greeting;
+        return greeting;
     };
 
     const findElements = (selector = 'p') => {
 
-      return document.querySelectorAll(selector);
+        return document.querySelectorAll(selector);
     };
 
 
