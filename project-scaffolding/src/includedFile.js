@@ -1,12 +1,24 @@
-module.exports = {
+(function () {
 
     // remember to be careful with "Fat Arrow"
     // blog.continuation.io/how-to-abuse-the-fat-arrow/
 
-  const helloWorld = (greeting = 'Hello World')  => {
+    var helloWorld = function (greeting = 'Hello World') {
 
       return greeting;
-  };
+    };
 
-  return { helloWorld };
-};
+    const findElements = (selector = 'p') => {
+
+      return document.querySelectorAll(selector);
+    };
+
+
+    module.exports = {
+        helloWorld,
+        findElements
+    };
+
+
+})();
+
